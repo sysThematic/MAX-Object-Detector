@@ -55,4 +55,9 @@ RUN if [ "$use_pre_trained_model" = "true" ] ; then \
 
 EXPOSE 5000
 
+# Run app as non-root
+RUN chown -R 1001:0 /workspace
+
+USER 1001
+
 CMD python app.py
